@@ -1,58 +1,68 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <a href=style.css><a/>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Smart Pill Box — SIH 2025</title>
 
-  <!-- Google font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* --- Existing Smart-Pill-Box Styles --- */
     :root{
       --bg: #f7fafc;
       --card: #ffffff;
       --muted: #6b7280;
       --accent: #0ea5a4;
-      --accent-2: #fb923c;
       --success: #16a34a;
       --danger: #ef4444;
       --shadow: 0 6px 20px rgba(22,24,27,0.06);
       --radius: 14px;
-      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      font-family: "Inter", system-ui, Arial;
     }
     body{
       margin:0;
       background: linear-gradient(180deg,#eef2f7 0%, var(--bg) 100%);
       color: #0f172a;
-      padding:28px;
-      align:center
+      display:flex;
+      justify-content:center;
+      padding:30px 10px;
     }
-    .container{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:20px;}
-    header.card{display:flex;align-items:center;gap:18px;padding:22px;background:linear-gradient(90deg, rgba(14,165,164,0.12), rgba(251,146,60,0.06));border-radius:var(--radius);box-shadow:var(--shadow);}
-    .logo{min-width:92px;min-height:92px;background:var(--card);border-radius:12px;display:flex;align-items:center;justify-content:center;}
-    header h1{margin:0;font-size:20px;font-weight:700;}
-    .grid-two{display:grid;grid-template-columns:1fr 420px;gap:18px;}
-    .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px;margin-top:14px;}
-    footer{font-size:13px;color:var(--muted);margin-top:8px;text-align:center;}
+    .container{
+      max-width:700px;
+      width:100%;
+    }
+    .card{
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:20px;
+      margin:18px auto;
+      text-align:center;
+    }
+    header.card{
+      background:linear-gradient(90deg, rgba(14,165,164,0.12), rgba(251,146,60,0.06));
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+    }
+    header h1{margin:10px 0 0;font-size:22px}
+    header p{margin:6px 0;color:var(--muted);font-size:14px}
 
-    /* --- Embedded Pill-Box Demo Styles --- */
-    .pill-demo .pill-box{
-      width:200px;height:120px;margin:20px auto;border:3px solid var(--accent);
+    /* Demo styles */
+    .pill-box{
+      width:220px;height:130px;margin:20px auto;border:3px solid var(--accent);
       border-radius:12px;background:#ffffff;transition:transform 1s ease;
     }
-    .pill-demo .pill-box.open{transform:rotateX(50deg);background:#d1fae5;}
-    .pill-demo input,.pill-demo button{
-      padding:8px;border-radius:6px;border:1px solid #ccc;font-size:15px;
+    .pill-box.open{transform:rotateX(50deg);background:#d1fae5;}
+    input,button{
+      padding:10px;border-radius:6px;border:1px solid #ccc;font-size:16px;
     }
-    .pill-demo button{
-      background:var(--accent);color:#fff;border:none;cursor:pointer;margin-left:6px;
-    }
-    .pill-demo button:hover{background:#028484;}
-    .pill-demo .notify{margin-top:14px;font-size:16px;font-weight:bold;color:var(--danger);}
-    .pill-demo .notify.active{color:var(--success);}
+    button{background:var(--accent);color:#fff;border:none;cursor:pointer;margin-left:6px;}
+    button:hover{background:#028484;}
+    .notify{margin-top:14px;font-size:18px;font-weight:bold;color:var(--danger);}
+    .notify.active{color:var(--success);}
+
+    footer{text-align:center;color:var(--muted);font-size:13px;margin-top:20px}
   </style>
 </head>
 <body>
@@ -60,60 +70,49 @@
 
     <!-- Header -->
     <header class="card">
-      <div class="logo">💊</div>
-      <div>
-        <h1>SMART INDIA HACKATHON 2025 — Smart Pill Box</h1>
-        <p>Theme: Healthcare • Category: Hardware + Software</p>
-      </div>
+      <div style="font-size:48px;">💊</div>
+      <h1>SMART INDIA HACKATHON 2025 — Smart Pill Box</h1>
+      <p>Theme: Healthcare • Category: Hardware + Software</p>
     </header>
 
-    <!-- Main content -->
-    <div class="grid-two">
+    <!-- Idea -->
+    <section class="card">
+      <h3>Idea — short & visual</h3>
+      <ul style="list-style:none;padding:0;margin-top:12px;line-height:1.6">
+        <li>💡 Alarm rings at pill time</li>
+        <li>🌐 Website notification</li>
+        <li>📦 Auto-opens pill box</li>
+        <li>🎯 Target: Elderly & Alzheimer’s</li>
+      </ul>
+    </section>
 
-      <!-- Left column -->
-      <div>
-        <!-- Idea card (shortened for clarity) -->
-        <section class="card">
-          <h3>Idea — short & visual</h3>
-          <ul>
-            <li>💡 Alarm rings at pill time</li>
-            <li>🌐 Website notification</li>
-            <li>📦 Auto-opens pill box</li>
-            <li>🎯 Target: Elderly & Alzheimer’s</li>
-          </ul>
-        </section>
-
-        <!-- Embedded Practical Demo -->
-        <section class="card pill-demo">
-          <h3>Interactive Demo</h3>
-          <p>Set a time. At that time, pill box opens, alarm rings, and notification appears.</p>
-          <div>
-            <input type="time" id="pillTime" />
-            <button onclick="setAlarm()">Set Alarm</button>
-          </div>
-          <div class="pill-box" id="pillBox"></div>
-          <div class="notify" id="notify">No notification yet</div>
-          <audio id="alarmSound">
-            <source src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg" type="audio/ogg">
-          </audio>
-        </section>
+    <!-- Demo -->
+    <section class="card">
+      <h3>Interactive Demo</h3>
+      <p>Set a time. At that time, pill box opens, alarm rings, and notification appears.</p>
+      <div style="margin:12px 0">
+        <input type="time" id="pillTime" />
+        <button onclick="setAlarm()">Set Alarm</button>
       </div>
+      <div class="pill-box" id="pillBox"></div>
+      <div class="notify" id="notify">No notification yet</div>
+      <audio id="alarmSound">
+        <source src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg" type="audio/ogg">
+      </audio>
+    </section>
 
-      <!-- Right column -->
-      <aside>
-        <div class="card">
-          <h3>Pill Box • IoT</h3>
-          <p>IoT-enabled pill box sends schedule & events to caregiver dashboard.</p>
-        </div>
-      </aside>
-    </div>
+    <!-- IoT Info -->
+    <section class="card">
+      <h3>Pill Box • IoT</h3>
+      <p>IoT-enabled pill box sends schedule & events to caregiver dashboard.</p>
+    </section>
 
     <footer>
-      Concept + Demo combined in one website
+      <copyright>© 2024 Smart India Hackathon • Developed by team innovista</copyright>
     </footer>
   </div>
 
-  <!-- JS for Demo -->
+  <!-- JS -->
   <script>
     let alarmTime = null;
     const pillBox = document.getElementById("pillBox");
@@ -142,11 +141,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
