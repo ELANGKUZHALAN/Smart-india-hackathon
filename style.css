@@ -1,0 +1,12 @@
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;    /* Vertical centering */
+  align-items: center;        /* Horizontal centering */
+}
